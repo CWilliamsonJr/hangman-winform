@@ -18,6 +18,11 @@ namespace Hangman
             btnStart.Focus();
 
         }
+        ~Hangman()
+        {
+            Close();
+            Dispose(true);
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -31,7 +36,29 @@ namespace Hangman
             if (e.KeyCode == Keys.Return)
             {
                 EvaluateGuess(txtGuess.Text);
+                txtGuess.Clear();
             }
+
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            
+            lblGuessDisplay.Text = string.Empty;
+            _guessDisplay = String.Empty;
+            btnStart.PerformClick();
+
+            ResetGame();
+
+
+
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose(true);
         }
     }
 }

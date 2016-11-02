@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblGuess = new System.Windows.Forms.Label();
+            this.lblGuessDisplay = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.txtGuess = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGuess = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pnlGuess.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblGuess
+            // lblGuessDisplay
             // 
-            this.lblGuess.AutoSize = true;
-            this.lblGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuess.Location = new System.Drawing.Point(102, 202);
-            this.lblGuess.Name = "lblGuess";
-            this.lblGuess.Size = new System.Drawing.Size(283, 26);
-            this.lblGuess.TabIndex = 0;
-            this.lblGuess.Text = "Click start to start the game.";
-            this.lblGuess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGuessDisplay.AutoSize = true;
+            this.lblGuessDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuessDisplay.Location = new System.Drawing.Point(102, 202);
+            this.lblGuessDisplay.Name = "lblGuessDisplay";
+            this.lblGuessDisplay.Size = new System.Drawing.Size(283, 26);
+            this.lblGuessDisplay.TabIndex = 0;
+            this.lblGuessDisplay.Text = "Click start to start the game.";
+            this.lblGuessDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnStart
             // 
@@ -96,15 +98,37 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "label2";
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(297, 374);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 23);
+            this.btnRestart.TabIndex = 6;
+            this.btnRestart.Text = "Restart Game";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(402, 374);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "Exit Game";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 409);
+            this.ClientSize = new System.Drawing.Size(579, 409);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlGuess);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.lblGuess);
+            this.Controls.Add(this.lblGuessDisplay);
             this.Name = "Hangman";
             this.Text = "Hangman";
             this.pnlGuess.ResumeLayout(false);
@@ -116,12 +140,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblGuess;
+        private System.Windows.Forms.Label lblGuessDisplay;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox txtGuess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlGuess;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 
