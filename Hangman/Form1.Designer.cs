@@ -36,14 +36,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblGraveyard = new System.Windows.Forms.Label();
             this.pnlGuess.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGuessDisplay
             // 
             this.lblGuessDisplay.AutoSize = true;
             this.lblGuessDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuessDisplay.Location = new System.Drawing.Point(102, 202);
+            this.lblGuessDisplay.Location = new System.Drawing.Point(112, 205);
             this.lblGuessDisplay.Name = "lblGuessDisplay";
             this.lblGuessDisplay.Size = new System.Drawing.Size(283, 26);
             this.lblGuessDisplay.TabIndex = 0;
@@ -52,7 +56,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(193, 374);
+            this.btnStart.Location = new System.Drawing.Point(6, 3);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 1;
@@ -82,7 +86,7 @@
             // 
             this.pnlGuess.Controls.Add(this.label1);
             this.pnlGuess.Controls.Add(this.txtGuess);
-            this.pnlGuess.Location = new System.Drawing.Point(143, 313);
+            this.pnlGuess.Location = new System.Drawing.Point(197, 312);
             this.pnlGuess.Name = "pnlGuess";
             this.pnlGuess.Size = new System.Drawing.Size(168, 30);
             this.pnlGuess.TabIndex = 4;
@@ -100,7 +104,7 @@
             // 
             // btnRestart
             // 
-            this.btnRestart.Location = new System.Drawing.Point(297, 374);
+            this.btnRestart.Location = new System.Drawing.Point(87, 3);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(75, 23);
             this.btnRestart.TabIndex = 6;
@@ -110,7 +114,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(402, 374);
+            this.btnClose.Location = new System.Drawing.Point(168, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 7;
@@ -118,21 +122,53 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnStart);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnRestart);
+            this.panel1.Location = new System.Drawing.Point(149, 364);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(273, 33);
+            this.panel1.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(406, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(170, 25);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Guessed Letters";
+            // 
+            // lblGraveyard
+            // 
+            this.lblGraveyard.AutoSize = true;
+            this.lblGraveyard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGraveyard.Location = new System.Drawing.Point(430, 66);
+            this.lblGraveyard.Name = "lblGraveyard";
+            this.lblGraveyard.Size = new System.Drawing.Size(59, 20);
+            this.lblGraveyard.TabIndex = 10;
+            this.lblGraveyard.Tag = "Letters";
+            this.lblGraveyard.Text = "Letters";
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 409);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.lblGraveyard);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlGuess);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblGuessDisplay);
             this.Name = "Hangman";
             this.Text = "Hangman";
             this.pnlGuess.ResumeLayout(false);
             this.pnlGuess.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +184,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGraveyard;
     }
 }
 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hangman
@@ -16,17 +9,13 @@ namespace Hangman
         {
             InitializeComponent();
             btnStart.Focus();
-
+            lblGraveyard.Text = string.Empty;
         }
-        ~Hangman()
-        {
-            Close();
-            Dispose(true);
-        }
+       
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            MakePuzzle();
+            MakePuzzle(Words);
             pnlGuess.Visible = true;
             txtGuess.Focus();
         }
@@ -35,30 +24,23 @@ namespace Hangman
         {
             if (e.KeyCode == Keys.Return)
             {
-                EvaluateGuess(txtGuess.Text);
+                if (string.IsNullOrWhiteSpace(txtGuess.Text))
+                    return;
+
+                EvaluateGuess(Words,txtGuess.Text);
                 txtGuess.Clear();
             }
-
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            
-            lblGuessDisplay.Text = string.Empty;
-            _guessDisplay = String.Empty;
-            btnStart.PerformClick();
-
             ResetGame();
-
-
-
-
+            btnStart.PerformClick();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-            Dispose(true);
         }
     }
 }

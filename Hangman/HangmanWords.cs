@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 
 namespace Hangman
@@ -8,16 +7,38 @@ namespace Hangman
     {
         private int _wordId = 0; // used for the index of words array
         private string _guessDisplay;
-        private readonly string[] _words = // list of words/phrases for hangman
-        {
-            "Programming is fun!"
-        };
-        private string _correctLettersGuessed; // list of correct letters
-        private string _wrongLettersGuessed; // list of wrong letters
 
-        private void MakePuzzle()
+        public string CorrectLettersGuessed { get; private set; }
+        public string WrongLettersGuessed { get; private set; }
+
+        public string[] Words { get; } = {
+            @"Programmer",
+            @"Buzzer",
+            @"Jazz",
+            @"Chalkboard",
+            @"Volkswagon",
+            @"Iced tea",
+            @"Coffee",
+            @"Church"
+        };
+
+        public string[] Phrases { get; } = {
+            @"Programming is fun!",
+            @"Time is money",
+            @"A Dime a Dozen",
+            @"Beating Around the Bush",
+            @"Close But No Cigar",
+            @"Suck it up buttercup",
+            @"Curiosity Killed The Cat",
+            @"You Can't Teach an Old Dog New Tricks"
+        };
+
+        private void MakePuzzle(string[] puzzels)
         {
-            foreach (var character in _words[_wordId])
+            Random rand = new Random();
+            _wordId = rand.Next(0, puzzels.Length);
+
+            foreach (var character in puzzels[_wordId])
             {
                 if (char.IsLetter(character.ToString(), 0)) // test if characer is a letter 
                 {
@@ -38,24 +59,24 @@ namespace Hangman
             lblGuessDisplay.Text = _guessDisplay;
         }
 
-        private void EvaluateGuess(string txtGuessText)
+        private void EvaluateGuess(string[] puzzels, string txtGuessText)
         {
-            char[] seperators = {' ', '\r'}; // list of delimitor to seperate display string into array
+            char[] seperators = { ' ', '\r' }; // list of delimitor to seperate display string into array
             var guessDisplayTemp = _guessDisplay.Trim().Split(seperators);
-            var chosenWordTemp = _words[_wordId].ToLower().ToCharArray(); // an array of character of the chosen string
+            var chosenWordTemp = puzzels[_wordId].ToLower().ToCharArray(); // an array of character of the chosen string
             StringBuilder builder = new StringBuilder(); // used to turn array back into string.
 
-            if (_words[_wordId].ToLower().Contains(txtGuessText.ToLower())) // checks to see if guess is in the string
+            if (puzzels[_wordId].ToLower().Contains(txtGuessText.ToLower())) // checks to see if guess is in the string
             {
                 //TODO: Do print characters to the screen
-                _correctLettersGuessed += txtGuess.Text; // adds correct guess to string.
+                CorrectLettersGuessed += txtGuess.Text; // adds correct guess to string.
 
-                for(var i = 0; i < chosenWordTemp.Length; i++) // loops the each letter in the string araray
+                for (var i = 0; i < chosenWordTemp.Length; i++) // loops the each letter in the string araray
                 {
-                    foreach (var letter in _correctLettersGuessed) // loops through the correct letters
+                    foreach (var letter in CorrectLettersGuessed) // loops through the correct letters
                     {
                         // test if letter from chosen word matches letter from correct letters and there is a blank space in guess display
-                        if (chosenWordTemp[i] == letter && Char.IsLetter(guessDisplayTemp[i],0) == false ) 
+                        if (chosenWordTemp[i] == letter && Char.IsLetter(guessDisplayTemp[i], 0) == false)
                         {
                             guessDisplayTemp[i] = letter.ToString(); // replace dash with letter
                         }
@@ -68,18 +89,29 @@ namespace Hangman
                     if (character == "") builder.Append('\r'); // addes new line at the correct spot.
                 }
                 lblGuessDisplay.Text = builder.ToString(); // prints back to screen
+
             }
             else
             {
                 //TODO: All letter to the Graveyard.
                 label2.Text = @"WRONG!!!";
-                _wrongLettersGuessed += txtGuess.Text;
+
+                if (string.IsNullOrWhiteSpace(WrongLettersGuessed))
+                {
+                    WrongLettersGuessed = txtGuessText;
+                    lblGraveyard.Text = txtGuessText + '\n';
+                }
+
+                if (!WrongLettersGuessed.Contains(txtGuessText))
+                    lblGraveyard.Text += txtGuessText + '\n';
+
+                WrongLettersGuessed += txtGuessText;
             }
         }
 
         private void ResetGame()
         {
-            _guessDisplay = _correctLettersGuessed = _wrongLettersGuessed = string.Empty; // resets everything
+            _guessDisplay = CorrectLettersGuessed = WrongLettersGuessed = string.Empty; // resets everything
         }
     }
 }
