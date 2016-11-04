@@ -33,12 +33,13 @@
             this.txtGuess = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGuess = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnRestart = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblGraveyard = new System.Windows.Forms.Label();
+            this.lblChancesText = new System.Windows.Forms.Label();
+            this.lblChancesNum = new System.Windows.Forms.Label();
             this.pnlGuess.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             // 
             this.lblGuessDisplay.AutoSize = true;
             this.lblGuessDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuessDisplay.Location = new System.Drawing.Point(112, 205);
+            this.lblGuessDisplay.Location = new System.Drawing.Point(132, 210);
             this.lblGuessDisplay.Name = "lblGuessDisplay";
             this.lblGuessDisplay.Size = new System.Drawing.Size(283, 26);
             this.lblGuessDisplay.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(6, 3);
+            this.btnStart.Location = new System.Drawing.Point(3, 7);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 1;
@@ -92,29 +93,20 @@
             this.pnlGuess.TabIndex = 4;
             this.pnlGuess.Visible = false;
             // 
-            // label2
+            // btnNewGame
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(149, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 31);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
-            // 
-            // btnRestart
-            // 
-            this.btnRestart.Location = new System.Drawing.Point(87, 3);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(75, 23);
-            this.btnRestart.TabIndex = 6;
-            this.btnRestart.Text = "Restart Game";
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            this.btnNewGame.Location = new System.Drawing.Point(3, 7);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(75, 23);
+            this.btnNewGame.TabIndex = 6;
+            this.btnNewGame.Text = "Restart Game";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Visible = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(168, 3);
+            this.btnClose.Location = new System.Drawing.Point(84, 7);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 7;
@@ -126,10 +118,10 @@
             // 
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnRestart);
-            this.panel1.Location = new System.Drawing.Point(149, 364);
+            this.panel1.Controls.Add(this.btnNewGame);
+            this.panel1.Location = new System.Drawing.Point(197, 364);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 33);
+            this.panel1.Size = new System.Drawing.Size(169, 33);
             this.panel1.TabIndex = 8;
             // 
             // label3
@@ -153,15 +145,36 @@
             this.lblGraveyard.Tag = "Letters";
             this.lblGraveyard.Text = "Letters";
             // 
+            // lblChancesText
+            // 
+            this.lblChancesText.AutoSize = true;
+            this.lblChancesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChancesText.Location = new System.Drawing.Point(22, 44);
+            this.lblChancesText.Name = "lblChancesText";
+            this.lblChancesText.Size = new System.Drawing.Size(103, 25);
+            this.lblChancesText.TabIndex = 11;
+            this.lblChancesText.Text = "Chances:";
+            // 
+            // lblChancesNum
+            // 
+            this.lblChancesNum.AutoSize = true;
+            this.lblChancesNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChancesNum.Location = new System.Drawing.Point(131, 40);
+            this.lblChancesNum.Name = "lblChancesNum";
+            this.lblChancesNum.Size = new System.Drawing.Size(30, 31);
+            this.lblChancesNum.TabIndex = 12;
+            this.lblChancesNum.Text = "∞";
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 409);
+            this.Controls.Add(this.lblChancesNum);
+            this.Controls.Add(this.lblChancesText);
             this.Controls.Add(this.lblGraveyard);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlGuess);
             this.Controls.Add(this.lblGuessDisplay);
             this.Name = "Hangman";
@@ -181,12 +194,13 @@
         private System.Windows.Forms.TextBox txtGuess;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlGuess;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblGraveyard;
+        private System.Windows.Forms.Label lblChancesText;
+        private System.Windows.Forms.Label lblChancesNum;
     }
 }
 
