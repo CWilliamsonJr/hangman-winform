@@ -20,8 +20,13 @@ namespace Hangman
 
         private void MakePuzzle(IReadOnlyList<string> puzzels)
         {
-            Random rand = new Random();
-            WordId = rand.Next(0, puzzels.Count);
+            var rand = new Random();
+            WordId = rand.Next(puzzels.Count);
+
+            while (string.IsNullOrWhiteSpace(puzzels[WordId])) // stops empty strings from appearing. In the puzzle
+            {
+                WordId = WordId = rand.Next(0, puzzels.Count);
+            }
 
             foreach (var character in puzzels[WordId])
             {
@@ -96,7 +101,7 @@ namespace Hangman
                         lblGraveyard.Text += txtGuessText + '\n'; //adds to display
                     }
 
-                    if (Chances >= 1) //checks to see if any chances are left
+                    if (Chances > 1) //checks to see if any chances are left
                     {
                         Chances--;
                         lblChancesNum.Text = Chances.ToString();
@@ -131,7 +136,7 @@ namespace Hangman
                 // resets everything
             lblChancesNum.Text = @"6";
             txtGuess.Enabled = true;
-            lblChancesText.Text = "Chances:";
+            lblChancesText.Text = @"Chances:";
             Chances = 6;
         }
 
@@ -141,6 +146,7 @@ namespace Hangman
             {
                 Words = File.ReadAllLines(@"./Text Files/words.txt");
                 Phrases = File.ReadAllLines(@"./Text Files/phrases.txt");
+               
             }
             catch (Exception e)
             {

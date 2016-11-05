@@ -72,7 +72,7 @@
             this.txtGuess.Name = "txtGuess";
             this.txtGuess.Size = new System.Drawing.Size(33, 20);
             this.txtGuess.TabIndex = 2;
-            this.txtGuess.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGuess_KeyUp);
+            this.txtGuess.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGuess_KeyDown);
             // 
             // label1
             // 
@@ -179,6 +179,7 @@
             this.Controls.Add(this.lblGuessDisplay);
             this.Name = "Hangman";
             this.Text = "Hangman";
+            this.Load += new System.EventHandler(this.Hangman_Load);
             this.pnlGuess.ResumeLayout(false);
             this.pnlGuess.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 namespace Hangman
 {
     public partial class Hangman : Form
@@ -9,10 +8,6 @@ namespace Hangman
         public Hangman()
         {
             InitializeComponent();
-            btnStart.Focus();
-            lblChancesNum.Text = Chances.ToString();
-            lblGraveyard.Text = string.Empty;
-            FileLoader();
         }
 
 
@@ -27,11 +22,7 @@ namespace Hangman
 
         private void txtGuess_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Return) return;
-            if (string.IsNullOrWhiteSpace(txtGuess.Text)) return;
-
-            EvaluateGuess(Words, txtGuess.Text);
-            txtGuess.Clear();
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -43,6 +34,33 @@ namespace Hangman
         {
             ResetGame();
             btnStart_Click(sender, e);
+        }
+
+        private void txtGuess_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Return) return;
+            if (string.IsNullOrWhiteSpace(txtGuess.Text)) return;
+
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+
+            EvaluateGuess(Words, txtGuess.Text);
+            txtGuess.Clear();
+        }
+
+        private void Hangman_Load(object sender, EventArgs e)
+        {
+            btnStart.Focus();
+            lblChancesNum.Text = Chances.ToString();
+            lblGraveyard.Text = string.Empty;
+            EditPuzzle editPuzzle = new EditPuzzle();
+            editPuzzle.Show();
+            FileLoader();
+            foreach (var word in Words)
+            {
+                editPuzzle.txtWordList.Text += word + Environment.NewLine;
+            }
+             //Words.ToString();
         }
     }
 }
