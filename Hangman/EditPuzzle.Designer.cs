@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -93,12 +94,22 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Any changes will take effect on next startup";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(275, 304);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 6;
+            this.lblStatus.Text = "label4";
+            // 
             // EditPuzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 364);
             this.ControlBox = false;
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
@@ -122,5 +133,6 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

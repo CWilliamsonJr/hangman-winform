@@ -5,7 +5,7 @@ namespace Hangman
 {
     public partial class Hangman : Form
     {
-        private readonly Form _editPuzzle = new EditPuzzle();
+        private EditPuzzle _editPuzzle = new EditPuzzle();
         private bool IsShowing { get; set; }
 
         public Hangman()
@@ -16,14 +16,13 @@ namespace Hangman
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            MakePuzzle(Words);
+            PuzzleChoice = SelectedPuzzle();
+            MakePuzzle(PuzzleChoice);
             pnlGuess.Visible = true;
             txtGuess.Focus();
             btnStart.Visible = false;
             btnNewGame.Visible = true;
         }
-
-      
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -40,11 +39,10 @@ namespace Hangman
         {
             if (e.KeyCode != Keys.Return) return;
             if (string.IsNullOrWhiteSpace(txtGuess.Text)) return;
-
             e.Handled = true;
             e.SuppressKeyPress = true;
-
-            EvaluateGuess(Words, txtGuess.Text);
+            EvaluateGuess(PuzzleChoice);
+            //EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words);
             txtGuess.Clear();
         }
 
@@ -58,9 +56,10 @@ namespace Hangman
 
         private void btnShowList_Click(object sender, EventArgs e)
         {
-            if (IsShowing) // hides form if its showing, show it if its not.
+            if (IsShowing) // hides edit form if its showing, show it if its not.
             {
                 _editPuzzle.Hide();
+                _editPuzzle.EditStatus = string.Empty;
                 IsShowing = false;
             }
             else

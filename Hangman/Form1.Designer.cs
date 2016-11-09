@@ -35,23 +35,30 @@
             this.pnlGuess = new System.Windows.Forms.Panel();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlGameButtons = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblGraveyard = new System.Windows.Forms.Label();
             this.lblChancesText = new System.Windows.Forms.Label();
             this.lblChancesNum = new System.Windows.Forms.Label();
             this.picHangman = new System.Windows.Forms.PictureBox();
             this.btnShowList = new System.Windows.Forms.Button();
+            this.grpPuzzleSelect = new System.Windows.Forms.GroupBox();
+            this.rbnBoth = new System.Windows.Forms.RadioButton();
+            this.rbnPhrases = new System.Windows.Forms.RadioButton();
+            this.rbnWords = new System.Windows.Forms.RadioButton();
+            this.pnlChances = new System.Windows.Forms.Panel();
             this.pnlGuess.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlGameButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHangman)).BeginInit();
+            this.grpPuzzleSelect.SuspendLayout();
+            this.pnlChances.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGuessDisplay
             // 
             this.lblGuessDisplay.AutoSize = true;
             this.lblGuessDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuessDisplay.Location = new System.Drawing.Point(132, 269);
+            this.lblGuessDisplay.Location = new System.Drawing.Point(192, 175);
             this.lblGuessDisplay.Name = "lblGuessDisplay";
             this.lblGuessDisplay.Size = new System.Drawing.Size(283, 26);
             this.lblGuessDisplay.TabIndex = 0;
@@ -117,21 +124,21 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel1
+            // pnlGameButtons
             // 
-            this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnNewGame);
-            this.panel1.Location = new System.Drawing.Point(197, 416);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(169, 33);
-            this.panel1.TabIndex = 8;
+            this.pnlGameButtons.Controls.Add(this.btnStart);
+            this.pnlGameButtons.Controls.Add(this.btnClose);
+            this.pnlGameButtons.Controls.Add(this.btnNewGame);
+            this.pnlGameButtons.Location = new System.Drawing.Point(197, 416);
+            this.pnlGameButtons.Name = "pnlGameButtons";
+            this.pnlGameButtons.Size = new System.Drawing.Size(169, 33);
+            this.pnlGameButtons.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(406, 32);
+            this.label3.Location = new System.Drawing.Point(475, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 25);
             this.label3.TabIndex = 9;
@@ -141,7 +148,7 @@
             // 
             this.lblGraveyard.AutoSize = true;
             this.lblGraveyard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGraveyard.Location = new System.Drawing.Point(430, 66);
+            this.lblGraveyard.Location = new System.Drawing.Point(586, 68);
             this.lblGraveyard.Name = "lblGraveyard";
             this.lblGraveyard.Size = new System.Drawing.Size(59, 20);
             this.lblGraveyard.TabIndex = 10;
@@ -152,7 +159,7 @@
             // 
             this.lblChancesText.AutoSize = true;
             this.lblChancesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChancesText.Location = new System.Drawing.Point(30, 419);
+            this.lblChancesText.Location = new System.Drawing.Point(6, 9);
             this.lblChancesText.Name = "lblChancesText";
             this.lblChancesText.Size = new System.Drawing.Size(103, 25);
             this.lblChancesText.TabIndex = 11;
@@ -162,7 +169,7 @@
             // 
             this.lblChancesNum.AutoSize = true;
             this.lblChancesNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChancesNum.Location = new System.Drawing.Point(139, 415);
+            this.lblChancesNum.Location = new System.Drawing.Point(115, 3);
             this.lblChancesNum.Name = "lblChancesNum";
             this.lblChancesNum.Size = new System.Drawing.Size(30, 31);
             this.lblChancesNum.TabIndex = 12;
@@ -175,14 +182,14 @@
             this.picHangman.Image = global::Hangman.Properties.Resources.Hangman_0;
             this.picHangman.Location = new System.Drawing.Point(12, 12);
             this.picHangman.Name = "picHangman";
-            this.picHangman.Size = new System.Drawing.Size(179, 209);
+            this.picHangman.Size = new System.Drawing.Size(152, 189);
             this.picHangman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHangman.TabIndex = 13;
             this.picHangman.TabStop = false;
             // 
             // btnShowList
             // 
-            this.btnShowList.Location = new System.Drawing.Point(387, 424);
+            this.btnShowList.Location = new System.Drawing.Point(385, 423);
             this.btnShowList.Name = "btnShowList";
             this.btnShowList.Size = new System.Drawing.Size(146, 23);
             this.btnShowList.TabIndex = 14;
@@ -190,18 +197,73 @@
             this.btnShowList.UseVisualStyleBackColor = true;
             this.btnShowList.Click += new System.EventHandler(this.btnShowList_Click);
             // 
+            // grpPuzzleSelect
+            // 
+            this.grpPuzzleSelect.Controls.Add(this.rbnBoth);
+            this.grpPuzzleSelect.Controls.Add(this.rbnPhrases);
+            this.grpPuzzleSelect.Controls.Add(this.rbnWords);
+            this.grpPuzzleSelect.Location = new System.Drawing.Point(12, 287);
+            this.grpPuzzleSelect.Name = "grpPuzzleSelect";
+            this.grpPuzzleSelect.Size = new System.Drawing.Size(132, 116);
+            this.grpPuzzleSelect.TabIndex = 15;
+            this.grpPuzzleSelect.TabStop = false;
+            this.grpPuzzleSelect.Text = "Puzzle Type";
+            // 
+            // rbnBoth
+            // 
+            this.rbnBoth.AutoSize = true;
+            this.rbnBoth.Location = new System.Drawing.Point(7, 74);
+            this.rbnBoth.Name = "rbnBoth";
+            this.rbnBoth.Size = new System.Drawing.Size(118, 17);
+            this.rbnBoth.TabIndex = 2;
+            this.rbnBoth.TabStop = true;
+            this.rbnBoth.Text = "Words and Phrases";
+            this.rbnBoth.UseVisualStyleBackColor = true;
+            // 
+            // rbnPhrases
+            // 
+            this.rbnPhrases.AutoSize = true;
+            this.rbnPhrases.Location = new System.Drawing.Point(7, 51);
+            this.rbnPhrases.Name = "rbnPhrases";
+            this.rbnPhrases.Size = new System.Drawing.Size(63, 17);
+            this.rbnPhrases.TabIndex = 1;
+            this.rbnPhrases.TabStop = true;
+            this.rbnPhrases.Text = "Phrases";
+            this.rbnPhrases.UseVisualStyleBackColor = true;
+            // 
+            // rbnWords
+            // 
+            this.rbnWords.AutoSize = true;
+            this.rbnWords.Checked = true;
+            this.rbnWords.Location = new System.Drawing.Point(7, 26);
+            this.rbnWords.Name = "rbnWords";
+            this.rbnWords.Size = new System.Drawing.Size(56, 17);
+            this.rbnWords.TabIndex = 0;
+            this.rbnWords.TabStop = true;
+            this.rbnWords.Text = "Words";
+            this.rbnWords.UseVisualStyleBackColor = true;
+            // 
+            // pnlChances
+            // 
+            this.pnlChances.Controls.Add(this.lblChancesText);
+            this.pnlChances.Controls.Add(this.lblChancesNum);
+            this.pnlChances.Location = new System.Drawing.Point(19, 410);
+            this.pnlChances.Name = "pnlChances";
+            this.pnlChances.Size = new System.Drawing.Size(160, 41);
+            this.pnlChances.TabIndex = 16;
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 463);
+            this.Controls.Add(this.pnlChances);
+            this.Controls.Add(this.grpPuzzleSelect);
             this.Controls.Add(this.btnShowList);
             this.Controls.Add(this.picHangman);
-            this.Controls.Add(this.lblChancesNum);
-            this.Controls.Add(this.lblChancesText);
             this.Controls.Add(this.lblGraveyard);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlGameButtons);
             this.Controls.Add(this.pnlGuess);
             this.Controls.Add(this.lblGuessDisplay);
             this.Icon = global::Hangman.Properties.Resources.HangmanIcon;
@@ -210,8 +272,12 @@
             this.Load += new System.EventHandler(this.Hangman_Load);
             this.pnlGuess.ResumeLayout(false);
             this.pnlGuess.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnlGameButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHangman)).EndInit();
+            this.grpPuzzleSelect.ResumeLayout(false);
+            this.grpPuzzleSelect.PerformLayout();
+            this.pnlChances.ResumeLayout(false);
+            this.pnlChances.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,13 +292,18 @@
         private System.Windows.Forms.Panel pnlGuess;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlGameButtons;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblGraveyard;
         private System.Windows.Forms.Label lblChancesText;
         private System.Windows.Forms.Label lblChancesNum;
         private System.Windows.Forms.PictureBox picHangman;
         private System.Windows.Forms.Button btnShowList;
+        private System.Windows.Forms.GroupBox grpPuzzleSelect;
+        private System.Windows.Forms.RadioButton rbnBoth;
+        private System.Windows.Forms.RadioButton rbnPhrases;
+        private System.Windows.Forms.RadioButton rbnWords;
+        private System.Windows.Forms.Panel pnlChances;
     }
 }
 

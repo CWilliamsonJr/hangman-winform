@@ -14,22 +14,23 @@ namespace Hangman
         private string GuessDisplay { get; set; }
         private string CorrectLettersGuessed { get; set; }
         private string WrongLettersGuessed { get; set; }
+        private string PuzzleChoice { get; set; }
 
         private string[] Words { get; set; }
 
         private string[] Phrases { get; set; }
 
-        private void MakePuzzle(IReadOnlyList<string> puzzels)
+        private void MakePuzzle(IReadOnlyList<string> puzzles)
         {
             var rand = new Random();
-            WordId = rand.Next(puzzels.Count);
+            WordId = rand.Next(puzzles.Count);
 
-            while (string.IsNullOrWhiteSpace(puzzels[WordId])) // stops empty strings from appearing. In the puzzle
+            while (string.IsNullOrWhiteSpace(puzzles[WordId])) // stops empty strings from appearing. In the puzzle
             {
-                WordId = WordId = rand.Next(0, puzzels.Count);
+                WordId = WordId = rand.Next(0, puzzles.Count);
             }
 
-            foreach (var character in puzzels[WordId])
+            foreach (var character in puzzles[WordId])
             {
                 if (char.IsLetter(character.ToString(), 0)) // test if characer is a letter 
                 {
@@ -50,16 +51,16 @@ namespace Hangman
             lblGuessDisplay.Text = GuessDisplay;
         }
 
-        private void EvaluateGuess(IReadOnlyList<string> puzzels, string txtGuessText)
+        private void EvaluateGuess(IReadOnlyList<string> puzzles, string txtGuessText)
         {
             char[] seperators = { ' ', '\r' }; // list of delimitor to seperate display string into array
             var guessDisplayTemp = GuessDisplay.Trim().Split(seperators);
-            var chosenWordTemp = puzzels[WordId].ToLower().ToCharArray(); // an array of character of the chosen string
+            var chosenWordTemp = puzzles[WordId].ToLower().ToCharArray(); // an array of character of the chosen string
             StringBuilder builder = new StringBuilder(); // used to turn string array back into string.
 
             if (lblGuessDisplay.Text.Contains("_")) // checks to see if there are any empty spaces left.
             {
-                if (puzzels[WordId].ToLower().Contains(txtGuessText.ToLower()) && Chances > 0)
+                if (puzzles[WordId].ToLower().Contains(txtGuessText.ToLower()) && Chances > 0)
                 // checks to see if guess is in the string
                 {
                     CorrectLettersGuessed += txtGuess.Text.ToLower(); // adds correct guess to string.
@@ -171,6 +172,56 @@ namespace Hangman
             {
                 MessageBox.Show(e.Message);
                 throw new Exception();
+            }
+        }
+
+        private string SelectedPuzzle()
+        {
+            foreach (Control control in grpPuzzleSelect.Controls)
+            {
+                if (!(control is RadioButton)) continue;
+                if ((control as RadioButton).Checked)
+                {
+                    return (control as RadioButton).Name;
+                }
+            }
+            return @"Nothing selected";
+        }
+
+        private void EvaluateGuess(string option)
+        {
+            switch (option) // selects which file to use for the game.
+            {
+                case "rbnWord":
+                    EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words);
+                    break;
+                case "rbnPhrases":
+                    EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Phrases);
+                    break;
+                case "rbnBoth":
+                    EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words.Concat(Phrases).ToArray());
+                    break;
+                default:
+                    EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words);
+                    break;
+            }
+        }
+        private void MakePuzzle(string option)
+        {
+            switch (option) // selects which file to use for the game.
+            {
+                case "rbnWord":
+                    MakePuzzle(Words);
+                    break;
+                case "rbnPhrases":
+                    MakePuzzle(Phrases);
+                    break;
+                case "rbnBoth":
+                    MakePuzzle(Words.Concat(Phrases).ToArray());
+                    break;
+                default:
+                    MakePuzzle(Words);
+                    break;
             }
         }
     }
