@@ -63,7 +63,7 @@ namespace Hangman
                 // checks to see if guess is in the string
                 {
                     //TODO: Do print characters to the screen
-                    CorrectLettersGuessed += txtGuess.Text; // adds correct guess to string.
+                    CorrectLettersGuessed += txtGuess.Text.ToLower(); // adds correct guess to string.
 
                     for (var i = 0; i < chosenWordTemp.Length; i++) // loops the each letter in the string araray
                     {
@@ -93,10 +93,8 @@ namespace Hangman
                 }
                 else
                 {
-                    //TODO: All letter to the Graveyard.
-
                     if (string.IsNullOrWhiteSpace(WrongLettersGuessed) || !WrongLettersGuessed.Contains(txtGuessText))
-                    // checks to see if anything has been guessed.
+                    // checks to see if anything has been guessed and the same letter hasn't been guessed alreay.
                     {
                         WrongLettersGuessed += txtGuessText; // adds to list
                         lblGraveyard.Text += txtGuessText + '\n'; //adds to display
@@ -104,7 +102,7 @@ namespace Hangman
 
                     if (Chances > 1) //checks to see if any chances are left
                     {
-                        Chances--;
+                        Chances--; // takes away chances
                         lblChancesNum.Text = Chances.ToString();
                         switch (Chances) // switches hangman picuture as player gets more wrong.
                         {
@@ -155,8 +153,8 @@ namespace Hangman
 
         private void ResetGame()
         {
-            GuessDisplay = lblGraveyard.Text = CorrectLettersGuessed = WrongLettersGuessed = string.Empty;
             // resets everything
+            GuessDisplay = lblGraveyard.Text = CorrectLettersGuessed = WrongLettersGuessed = string.Empty;
             lblChancesNum.Text = @"6";
             txtGuess.Enabled = true;
             lblChancesText.Text = @"Chances:";
