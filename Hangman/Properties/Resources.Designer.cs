@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hangman.Properties
-{
-
-
+namespace Hangman.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,197 @@ namespace Hangman.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Hangman.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_0 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_1 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_2 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_3 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_4 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_5 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hangman_6 {
+            get {
+                object obj = ResourceManager.GetObject("Hangman_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Programming is fun!
+        ///Time is money
+        ///A Dime a Dozen
+        ///Beating Around the Bush
+        ///Close But No Cigar
+        ///Suck it up buttercup
+        ///Curiosity Killed The Cat
+        ///You Can&apos;t Teach an Old Dog New Trick.
+        /// </summary>
+        internal static string phrases {
+            get {
+                return ResourceManager.GetString("phrases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commuter
+        ///Timer
+        ///Music
+        ///Lamp Shade
+        ///Beetle
+        ///Kool aid
+        ///Coffee
+        ///Union
+        ///Table
+        ///Couch
+        ///Chair
+        ///Bottle
+        ///acres
+        ///adult
+        ///advice
+        ///arrangement
+        ///attempt
+        ///August
+        ///Autumn
+        ///border
+        ///breeze
+        ///brick
+        ///calm
+        ///canal
+        ///Casey
+        ///cast
+        ///chose
+        ///claws
+        ///coach
+        ///constantly
+        ///contrast
+        ///cookies
+        ///customs
+        ///damage
+        ///Danny
+        ///deeply
+        ///depth
+        ///discussion
+        ///doll
+        ///donkey
+        ///Egypt
+        ///Ellen
+        ///essential
+        ///exchange
+        ///exist
+        ///explanation
+        ///facing
+        ///film
+        ///finest
+        ///fireplace
+        ///floating
+        ///folks
+        ///fort
+        ///garage
+        ///grabbed
+        ///grandmother
+        ///habit
+        ///happily
+        ///Harry
+        ///heading
+        ///hunter
+        ///Illinoi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string words {
+            get {
+                return ResourceManager.GetString("words", resourceCulture);
             }
         }
     }

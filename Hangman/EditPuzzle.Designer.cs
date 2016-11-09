@@ -33,6 +33,7 @@
             this.txtPhraseList = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -81,12 +82,23 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save Changes";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(112, 342);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(213, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Any changes will take effect on next startup";
             // 
             // EditPuzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 334);
+            this.ClientSize = new System.Drawing.Size(415, 364);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPhraseList);
@@ -94,6 +106,7 @@
             this.Controls.Add(this.label1);
             this.Name = "EditPuzzle";
             this.Text = "EditPuzzle";
+            this.Load += new System.EventHandler(this.EditPuzzle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,5 +119,6 @@
         public System.Windows.Forms.TextBox txtPhraseList;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label3;
     }
 }

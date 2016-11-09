@@ -40,15 +40,17 @@
             this.lblGraveyard = new System.Windows.Forms.Label();
             this.lblChancesText = new System.Windows.Forms.Label();
             this.lblChancesNum = new System.Windows.Forms.Label();
+            this.picHangman = new System.Windows.Forms.PictureBox();
             this.pnlGuess.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHangman)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGuessDisplay
             // 
             this.lblGuessDisplay.AutoSize = true;
             this.lblGuessDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuessDisplay.Location = new System.Drawing.Point(132, 210);
+            this.lblGuessDisplay.Location = new System.Drawing.Point(132, 322);
             this.lblGuessDisplay.Name = "lblGuessDisplay";
             this.lblGuessDisplay.Size = new System.Drawing.Size(283, 26);
             this.lblGuessDisplay.TabIndex = 0;
@@ -87,7 +89,7 @@
             // 
             this.pnlGuess.Controls.Add(this.label1);
             this.pnlGuess.Controls.Add(this.txtGuess);
-            this.pnlGuess.Location = new System.Drawing.Point(197, 312);
+            this.pnlGuess.Location = new System.Drawing.Point(197, 376);
             this.pnlGuess.Name = "pnlGuess";
             this.pnlGuess.Size = new System.Drawing.Size(168, 30);
             this.pnlGuess.TabIndex = 4;
@@ -119,7 +121,7 @@
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnNewGame);
-            this.panel1.Location = new System.Drawing.Point(197, 364);
+            this.panel1.Location = new System.Drawing.Point(197, 416);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(169, 33);
             this.panel1.TabIndex = 8;
@@ -149,7 +151,7 @@
             // 
             this.lblChancesText.AutoSize = true;
             this.lblChancesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChancesText.Location = new System.Drawing.Point(22, 44);
+            this.lblChancesText.Location = new System.Drawing.Point(30, 419);
             this.lblChancesText.Name = "lblChancesText";
             this.lblChancesText.Size = new System.Drawing.Size(103, 25);
             this.lblChancesText.TabIndex = 11;
@@ -159,17 +161,28 @@
             // 
             this.lblChancesNum.AutoSize = true;
             this.lblChancesNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChancesNum.Location = new System.Drawing.Point(131, 40);
+            this.lblChancesNum.Location = new System.Drawing.Point(139, 415);
             this.lblChancesNum.Name = "lblChancesNum";
             this.lblChancesNum.Size = new System.Drawing.Size(30, 31);
             this.lblChancesNum.TabIndex = 12;
             this.lblChancesNum.Text = "∞";
             // 
+            // picHangman
+            // 
+            this.picHangman.Image = global::Hangman.Properties.Resources.Hangman_0;
+            this.picHangman.Location = new System.Drawing.Point(12, 12);
+            this.picHangman.Name = "picHangman";
+            this.picHangman.Size = new System.Drawing.Size(179, 209);
+            this.picHangman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHangman.TabIndex = 13;
+            this.picHangman.TabStop = false;
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 409);
+            this.ClientSize = new System.Drawing.Size(657, 463);
+            this.Controls.Add(this.picHangman);
             this.Controls.Add(this.lblChancesNum);
             this.Controls.Add(this.lblChancesText);
             this.Controls.Add(this.lblGraveyard);
@@ -183,6 +196,7 @@
             this.pnlGuess.ResumeLayout(false);
             this.pnlGuess.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHangman)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +216,7 @@
         private System.Windows.Forms.Label lblGraveyard;
         private System.Windows.Forms.Label lblChancesText;
         private System.Windows.Forms.Label lblChancesNum;
+        private System.Windows.Forms.PictureBox picHangman;
     }
 }
 

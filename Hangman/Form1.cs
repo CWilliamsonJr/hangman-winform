@@ -20,10 +20,7 @@ namespace Hangman
             btnNewGame.Visible = true;
         }
 
-        private void txtGuess_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-        }
+      
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -56,11 +53,6 @@ namespace Hangman
             EditPuzzle editPuzzle = new EditPuzzle();
             editPuzzle.Show();
             FileLoader();
-            foreach (var word in Words)
-            {
-                editPuzzle.txtWordList.Text += word + Environment.NewLine;
-            }
-             //Words.ToString();
         }
     }
 }

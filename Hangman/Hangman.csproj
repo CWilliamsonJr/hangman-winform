@@ -77,6 +77,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -92,18 +93,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Hangman Images\Hangman-0.png" />
+    <Content Include="Hangman Images\Hangman-1.png" />
+    <Content Include="Hangman Images\Hangman-2.png" />
+    <Content Include="Hangman Images\Hangman-3.png" />
+    <Content Include="Hangman Images\Hangman-4.png" />
+    <Content Include="Hangman Images\Hangman-5.png" />
+    <Content Include="Hangman Images\Hangman-6.png" />
+    <Content Include="Hangman Images\Hangman_Game_grey_128px_1125916_easyicon.net.ico" />
+    <None Include="Resources\Hangman-0.png" />
     <Content Include="Text Files\phrases - Copy.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Text Files\phrases.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Text Files\phrases.txt" />
     <Content Include="Text Files\words - Copy.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Text Files\words.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Text Files\words.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
