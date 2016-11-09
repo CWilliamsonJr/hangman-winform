@@ -131,88 +131,12 @@ namespace Hangman.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Programming is fun!
-        ///Time is money
-        ///A Dime a Dozen
-        ///Beating Around the Bush
-        ///Close But No Cigar
-        ///Suck it up buttercup
-        ///Curiosity Killed The Cat
-        ///You Can&apos;t Teach an Old Dog New Trick.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static string phrases {
+        internal static System.Drawing.Icon HangmanIcon {
             get {
-                return ResourceManager.GetString("phrases", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Commuter
-        ///Timer
-        ///Music
-        ///Lamp Shade
-        ///Beetle
-        ///Kool aid
-        ///Coffee
-        ///Union
-        ///Table
-        ///Couch
-        ///Chair
-        ///Bottle
-        ///acres
-        ///adult
-        ///advice
-        ///arrangement
-        ///attempt
-        ///August
-        ///Autumn
-        ///border
-        ///breeze
-        ///brick
-        ///calm
-        ///canal
-        ///Casey
-        ///cast
-        ///chose
-        ///claws
-        ///coach
-        ///constantly
-        ///contrast
-        ///cookies
-        ///customs
-        ///damage
-        ///Danny
-        ///deeply
-        ///depth
-        ///discussion
-        ///doll
-        ///donkey
-        ///Egypt
-        ///Ellen
-        ///essential
-        ///exchange
-        ///exist
-        ///explanation
-        ///facing
-        ///film
-        ///finest
-        ///fireplace
-        ///floating
-        ///folks
-        ///fort
-        ///garage
-        ///grabbed
-        ///grandmother
-        ///habit
-        ///happily
-        ///Harry
-        ///heading
-        ///hunter
-        ///Illinoi [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string words {
-            get {
-                return ResourceManager.GetString("words", resourceCulture);
+                object obj = ResourceManager.GetObject("HangmanIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

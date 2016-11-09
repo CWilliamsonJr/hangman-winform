@@ -41,6 +41,7 @@
             this.lblChancesText = new System.Windows.Forms.Label();
             this.lblChancesNum = new System.Windows.Forms.Label();
             this.picHangman = new System.Windows.Forms.PictureBox();
+            this.btnShowList = new System.Windows.Forms.Button();
             this.pnlGuess.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHangman)).BeginInit();
@@ -50,7 +51,7 @@
             // 
             this.lblGuessDisplay.AutoSize = true;
             this.lblGuessDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuessDisplay.Location = new System.Drawing.Point(132, 322);
+            this.lblGuessDisplay.Location = new System.Drawing.Point(132, 269);
             this.lblGuessDisplay.Name = "lblGuessDisplay";
             this.lblGuessDisplay.Size = new System.Drawing.Size(283, 26);
             this.lblGuessDisplay.TabIndex = 0;
@@ -169,6 +170,8 @@
             // 
             // picHangman
             // 
+            this.picHangman.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.picHangman.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picHangman.Image = global::Hangman.Properties.Resources.Hangman_0;
             this.picHangman.Location = new System.Drawing.Point(12, 12);
             this.picHangman.Name = "picHangman";
@@ -177,11 +180,22 @@
             this.picHangman.TabIndex = 13;
             this.picHangman.TabStop = false;
             // 
+            // btnShowList
+            // 
+            this.btnShowList.Location = new System.Drawing.Point(387, 424);
+            this.btnShowList.Name = "btnShowList";
+            this.btnShowList.Size = new System.Drawing.Size(146, 23);
+            this.btnShowList.TabIndex = 14;
+            this.btnShowList.Text = "Edit Word/Phrase List";
+            this.btnShowList.UseVisualStyleBackColor = true;
+            this.btnShowList.Click += new System.EventHandler(this.btnShowList_Click);
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 463);
+            this.Controls.Add(this.btnShowList);
             this.Controls.Add(this.picHangman);
             this.Controls.Add(this.lblChancesNum);
             this.Controls.Add(this.lblChancesText);
@@ -190,6 +204,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlGuess);
             this.Controls.Add(this.lblGuessDisplay);
+            this.Icon = global::Hangman.Properties.Resources.HangmanIcon;
             this.Name = "Hangman";
             this.Text = "Hangman";
             this.Load += new System.EventHandler(this.Hangman_Load);
@@ -217,6 +232,7 @@
         private System.Windows.Forms.Label lblChancesText;
         private System.Windows.Forms.Label lblChancesNum;
         private System.Windows.Forms.PictureBox picHangman;
+        private System.Windows.Forms.Button btnShowList;
     }
 }
 

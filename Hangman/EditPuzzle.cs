@@ -23,8 +23,9 @@ namespace Hangman
 
         private void EditPuzzle_Load(object sender, EventArgs e)
         {
-            txtWordList.Lines = Properties.Resources.words.Split( new[] {Environment.NewLine} , StringSplitOptions.None).ToArray();
-            txtPhraseList.Lines = Properties.Resources.phrases.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToArray();
+            txtWordList.Lines = File.ReadAllLines(@"../../Text Files/words.txt");
+            txtPhraseList.Lines = File.ReadAllLines(@"../../Text Files/phrases.txt");
         }
+      
     }
 }

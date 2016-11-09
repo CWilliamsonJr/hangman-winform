@@ -5,6 +5,9 @@ namespace Hangman
 {
     public partial class Hangman : Form
     {
+        private readonly Form _editPuzzle = new EditPuzzle();
+        private bool IsShowing { get; set; }
+
         public Hangman()
         {
             InitializeComponent();
@@ -50,9 +53,23 @@ namespace Hangman
             btnStart.Focus();
             lblChancesNum.Text = Chances.ToString();
             lblGraveyard.Text = string.Empty;
-            EditPuzzle editPuzzle = new EditPuzzle();
-            editPuzzle.Show();
             FileLoader();
         }
+
+        private void btnShowList_Click(object sender, EventArgs e)
+        {
+            if (IsShowing) // hides form if its showing, show it if its not.
+            {
+                _editPuzzle.Hide();
+                IsShowing = false;
+            }
+            else
+            {
+                _editPuzzle.Show();
+                IsShowing = true;
+            }
+        }
+
+        
     }
 }

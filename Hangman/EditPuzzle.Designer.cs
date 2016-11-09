@@ -98,12 +98,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 364);
+            this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPhraseList);
             this.Controls.Add(this.txtWordList);
             this.Controls.Add(this.label1);
+            this.Icon = global::Hangman.Properties.Resources.HangmanIcon;
             this.Name = "EditPuzzle";
             this.Text = "EditPuzzle";
             this.Load += new System.EventHandler(this.EditPuzzle_Load);

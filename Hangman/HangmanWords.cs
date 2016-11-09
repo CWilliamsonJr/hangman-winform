@@ -62,7 +62,6 @@ namespace Hangman
                 if (puzzels[WordId].ToLower().Contains(txtGuessText.ToLower()) && Chances > 0)
                 // checks to see if guess is in the string
                 {
-                    //TODO: Do print characters to the screen
                     CorrectLettersGuessed += txtGuess.Text.ToLower(); // adds correct guess to string.
 
                     for (var i = 0; i < chosenWordTemp.Length; i++) // loops the each letter in the string araray
@@ -165,8 +164,8 @@ namespace Hangman
         {
             try
             {
-                Words = Properties.Resources.words.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToArray();
-                Phrases = Properties.Resources.phrases.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToArray();
+                Words = File.ReadAllLines(@"../../Text Files/words.txt");
+                Phrases = File.ReadAllLines(@"../../Text Files/phrases.txt");
             }
             catch (Exception e)
             {
