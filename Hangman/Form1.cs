@@ -41,8 +41,28 @@ namespace Hangman
             if (string.IsNullOrWhiteSpace(txtGuess.Text)) return;
             e.Handled = true;
             e.SuppressKeyPress = true;
-            EvaluateGuess(PuzzleChoice);
-            //EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words);
+
+            if (AllowMultiLine)
+            {
+                txtGuess.Enabled = false;
+                var strTempArray = txtGuess.Text.ToCharArray();
+                foreach (var character in strTempArray)
+                {
+                    if (Chances <= 0) return; // stops execution if no chances are left.
+                    if (string.IsNullOrWhiteSpace(character.ToString()) || char.IsPunctuation(character))
+                        continue;
+
+                    txtGuess.Text = character.ToString();
+                    EvaluateGuess(PuzzleChoice);
+                }
+                txtGuess.Enabled = true;
+                txtGuess.Focus();
+            }
+            else
+            {
+                EvaluateGuess(PuzzleChoice);
+            }
+
             txtGuess.Clear();
         }
 
@@ -69,6 +89,20 @@ namespace Hangman
             }
         }
 
-        
+        private void cbMultiLetter_CheckedChanged(object sender, EventArgs e)
+        {
+            AllowMultiLine = cbMultiLetter.Checked;
+
+            if (AllowMultiLine)
+            {
+                txtGuess.Width = 100;
+                txtGuess.MaxLength = 50;
+            }
+            else
+            {
+                txtGuess.Width = 33;
+                txtGuess.MaxLength = 1;
+            }
+        }
     }
 }

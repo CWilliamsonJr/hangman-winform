@@ -11,23 +11,25 @@ namespace Hangman
     {
         private int WordId { get; set; } // used for the index of words array
         private int Chances { get; set; } = 6;
-        private string GuessDisplay { get; set; }
-        private string CorrectLettersGuessed { get; set; }
-        private string WrongLettersGuessed { get; set; }
-        private string PuzzleChoice { get; set; }
+        private bool AllowMultiLine { get; set; } // determines if more than one letter can be entered in
+        private string GuessDisplay { get; set; } // holds the string of underscores displayed on the screen
+        private string CorrectLettersGuessed { get; set; } // list of correct letters
+        private string WrongLettersGuessed { get; set; } // list of wrong letters
+        private string PuzzleChoice { get; set; } // string for which puzzle is selected.
 
-        private string[] Words { get; set; }
-
-        private string[] Phrases { get; set; }
+        private string[] Words { get; set; } // holds the words list
+        private string[] Phrases { get; set; } // holds the phrases list
 
         private void MakePuzzle(IReadOnlyList<string> puzzles)
         {
+            if (!(puzzles.Count >= 1)) return; //stops program from running if no puzzels are present
+
             var rand = new Random();
             WordId = rand.Next(puzzles.Count);
 
             while (string.IsNullOrWhiteSpace(puzzles[WordId])) // stops empty strings from appearing. In the puzzle
             {
-                WordId = WordId = rand.Next(0, puzzles.Count);
+                WordId = WordId = rand.Next(puzzles.Count);
             }
 
             foreach (var character in puzzles[WordId])
@@ -44,7 +46,7 @@ namespace Hangman
                     }
                     else
                     {
-                        GuessDisplay += character.ToString(); // if neither just add to display
+                        GuessDisplay += character + " "; // if neither just add to display
                     }
                 }
             }
@@ -53,6 +55,8 @@ namespace Hangman
 
         private void EvaluateGuess(IReadOnlyList<string> puzzles, string txtGuessText)
         {
+            if (!(puzzles.Count >= 1)) return; //stops program from running if no puzzels are present
+
             char[] seperators = { ' ', '\r' }; // list of delimitor to seperate display string into array
             var guessDisplayTemp = GuessDisplay.Trim().Split(seperators);
             var chosenWordTemp = puzzles[WordId].ToLower().ToCharArray(); // an array of character of the chosen string
@@ -65,21 +69,22 @@ namespace Hangman
                 {
                     CorrectLettersGuessed += txtGuess.Text.ToLower(); // adds correct guess to string.
 
-                    for (var i = 0; i < chosenWordTemp.Length; i++) // loops the each letter in the string araray
+                    for (var i = 0; i < chosenWordTemp.Length; i++) // loops the each letter in the string array
                     {
                         foreach (var letter in CorrectLettersGuessed) // loops through the correct letters
                         {
                             // test if letter from chosen word matches letter from correct letters and there is a blank space in guess display
-                            if (chosenWordTemp[i] == letter && Char.IsLetter(guessDisplayTemp[i], 0) == false)
+                            //if (guessDisplayTemp[i] == string.Empty) continue;
+                            if (chosenWordTemp[i] == letter && char.IsLetter(guessDisplayTemp[i], 0) == false)
                             {
                                 guessDisplayTemp[i] = letter.ToString(); // replace dash with letter
                             }
                         }
                     }
-
+                    //TODO: change to for loop, check character before and after for puncuation and join together.
                     foreach (var character in guessDisplayTemp) // makes string array back to string.
                     {
-                        builder.Append(character).Append(" "); //addes space between each dash
+                        builder.Append(character).Append(' '); //addes space between each dash
                         if (character == "") builder.Append('\r'); // addes new line at the correct spot.
                     }
 
@@ -97,7 +102,13 @@ namespace Hangman
                     // checks to see if anything has been guessed and the same letter hasn't been guessed alreay.
                     {
                         WrongLettersGuessed += txtGuessText; // adds to list
-                        lblGraveyard.Text += txtGuessText + '\n'; //adds to display
+                        var sortLetters = WrongLettersGuessed.ToCharArray();
+                        Array.Sort(sortLetters); // sorts the letters
+                        lblGraveyard.Text = string.Empty;
+                        foreach (var letter in sortLetters)
+                        {
+                            lblGraveyard.Text += letter + @" ";
+                        }
                     }
 
                     if (Chances > 1) //checks to see if any chances are left
@@ -192,13 +203,13 @@ namespace Hangman
         {
             switch (option) // selects which file to use for the game.
             {
-                case "rbnWord":
+                case "rbWord":
                     EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words);
                     break;
-                case "rbnPhrases":
+                case "rbPhrases":
                     EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Phrases);
                     break;
-                case "rbnBoth":
+                case "rbBoth":
                     EvaluateGuess(txtGuessText: txtGuess.Text, puzzles: Words.Concat(Phrases).ToArray());
                     break;
                 default:
@@ -210,13 +221,13 @@ namespace Hangman
         {
             switch (option) // selects which file to use for the game.
             {
-                case "rbnWord":
+                case "rbWord":
                     MakePuzzle(Words);
                     break;
-                case "rbnPhrases":
+                case "rbPhrases":
                     MakePuzzle(Phrases);
                     break;
-                case "rbnBoth":
+                case "rbBoth":
                     MakePuzzle(Words.Concat(Phrases).ToArray());
                     break;
                 default:
