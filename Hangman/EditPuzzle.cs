@@ -13,12 +13,12 @@ namespace Hangman
         {
             get
             {
-                return this.lblStatus.Text;
+                return lblStatus.Text;
             }
 
             set
             {
-                this.lblStatus.Text = value;
+                lblStatus.Text = value;
             }
         }
 
@@ -38,7 +38,7 @@ namespace Hangman
         }
 
         private void EditPuzzle_Load(object sender, EventArgs e)
-        {
+        { // loads files into the textboxes.
             lblStatus.Text = string.Empty;
             txtWordList.Lines = File.ReadAllLines(@"../../Text Files/words.txt");
             txtPhraseList.Lines = File.ReadAllLines(@"../../Text Files/phrases.txt");

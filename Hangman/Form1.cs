@@ -31,39 +31,43 @@ namespace Hangman
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            ResetGame();
+            ResetGame(); // restores everything to default
             btnStart_Click(sender, e);
         }
 
         private void txtGuess_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Return) return;
-            if (string.IsNullOrWhiteSpace(txtGuess.Text)) return;
-            e.Handled = true;
-            e.SuppressKeyPress = true;
+            if (string.IsNullOrWhiteSpace(txtGuess.Text)) return; // stops empty text from being sent.
 
-            if (AllowMultiLine)
+            e.SuppressKeyPress = true; // stop key sound from being fired
+
+            if (AllowMultiLine) // determines if multi letter support is enabled.
             {
                 txtGuess.Enabled = false;
-                var strTempArray = txtGuess.Text.ToCharArray();
+                var strTempArray = txtGuess.Text.ToCharArray(); // turns entered string into characters
                 foreach (var character in strTempArray)
                 {
-                    if (Chances <= 0) return; // stops execution if no chances are left.
+                    if (Chances <= 0) break; // stops execution if no chances are left.
                     if (string.IsNullOrWhiteSpace(character.ToString()) || char.IsPunctuation(character))
-                        continue;
+                        continue; // skips spaces and punctuation.
 
                     txtGuess.Text = character.ToString();
                     EvaluateGuess(PuzzleChoice);
                 }
-                txtGuess.Enabled = true;
-                txtGuess.Focus();
+                if (Chances >= 1)
+                {
+                    txtGuess.Enabled = true;
+                    txtGuess.Focus();
+                }
+
             }
             else
             {
                 EvaluateGuess(PuzzleChoice);
             }
 
-            txtGuess.Clear();
+            txtGuess.Clear(); // clears input box
         }
 
         private void Hangman_Load(object sender, EventArgs e)
@@ -71,7 +75,7 @@ namespace Hangman
             btnStart.Focus();
             lblChancesNum.Text = Chances.ToString();
             lblGraveyard.Text = string.Empty;
-            FileLoader();
+            FileLoader(); // loads text file 
         }
 
         private void btnShowList_Click(object sender, EventArgs e)
@@ -93,7 +97,7 @@ namespace Hangman
         {
             AllowMultiLine = cbMultiLetter.Checked;
 
-            if (AllowMultiLine)
+            if (AllowMultiLine) // changes input box size
             {
                 txtGuess.Width = 100;
                 txtGuess.MaxLength = 50;
