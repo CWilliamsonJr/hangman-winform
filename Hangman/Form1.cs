@@ -106,6 +106,7 @@ namespace Hangman
             {
                 txtGuess.Width = 33;
                 txtGuess.MaxLength = 1;
+                txtGuess.Clear();
             }
         }
     }

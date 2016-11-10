@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -26,8 +24,6 @@ namespace Hangman
         {
             InitializeComponent();
         }
-
-        
 
         private void btnSave_Click(object sender, EventArgs e)
         {
